@@ -1,15 +1,17 @@
 import React from "react";
-import { Jumbotron, Container } from "react-bootstrap";
+import { Jumbotron, Container } from 'react-bootstrap/'
 import styled from "styled-components";
 
-import img from "../images/6.png";
+// import logo from "../images/Logo.png";
 
 const Style = styled.div`
-  .jumbo {
-    background: url(${img}) no-repiat fixed bottom;
+.jumbo {
+    background: no-repiat fixed;
+    background-position: 50% 50%;
+    // background-image: url();
     background-size: cover;
     color: white;
-    height: 500px;
+    height: 600px;
     position: relative;
     z-index: -2;
   }
@@ -31,8 +33,7 @@ function Jumbo() {
       <Jumbotron className="jumbo" fluid>
         <div className="owerlayty"></div>
         <Container>
-          <h1>Main Title</h1>
-          <p>lorem</p>
+          <h1>Text</h1>
         </Container>
       </Jumbotron>
     </Style>

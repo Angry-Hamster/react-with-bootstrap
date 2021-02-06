@@ -1,21 +1,29 @@
+import React, { Component, Suspense } from 'react'
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-import { Home, About, Contacts } from "./pages";
-import Navigation from "./components/Navigation";
+import routes from "./routes";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navigation />
+        <Suspense fallback='loading...'>
         <Switch>
-          <Route component={Home} path= "/" exact />
-          <Route component={About} path="/about"/>
-          <Route component={Contacts} path="/contacts"/>
+          {routes.map((e) => {
+            return(
+              <Route key={e.path} {...e}/>
+            )
+          })}
         </Switch>
+        </Suspense>
       </BrowserRouter>
+      <Footer/>
     </>
   );
 }
